@@ -1,0 +1,20 @@
+function fibonnaci 1
+    push argument 0
+    push constant 2
+    lt
+    if-goto zero_or_one
+    push argument 0
+    push constant 2
+    sub
+    call fibonnaci.fibonnaci 1 // F(n-2) 
+    push argument 0
+    push constant 1
+    sub
+    call fibonnaci.fibonnaci 1 // F(n-1)
+    add
+    return
+
+
+label zero_or_one
+    push argument 0
+    return 

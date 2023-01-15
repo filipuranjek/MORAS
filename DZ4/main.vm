@@ -1,0 +1,30 @@
+sp
+call main.Main 0
+ep
+
+function Main 0
+	push constant 5
+	push constant 11
+	push constant 8
+	call mid.mid 3
+
+	push constant 5
+	call fibonnaci.fibonnaci 1
+
+	push constant 7
+	push constant 2
+	call div_mod.div 2
+
+	push constant 7
+	push constant 2
+	call div_mod.mod 2
+
+	push constant 100
+	push constant 5
+	push constant 3
+	call bin_search.bin_search 3
+
+label end
+goto end
+	
+

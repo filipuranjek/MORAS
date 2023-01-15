@@ -1,0 +1,45 @@
+function div 2
+    push constant 0
+    pop local 0 // u local 0 spremamo 0 (broj dijeljenja)
+    push argument 0
+    pop local 1 // u local  1 spremamo broj koji oduzimamo s argument 1
+
+label while_div
+    push local 1
+    push argument 1
+    lt
+    if-goto end_div
+    push local 0
+    push constant 1
+    add
+    pop local 0 // updatamo broj dijeljenja
+    push local 1
+    push argument 1
+    sub
+    pop local 1
+    goto while_div
+
+label end_div
+    push local 0
+    return
+
+function mod 2
+    push constant 0
+    pop local 0 
+    push argument 0
+    pop local 1 // ostatak kod dijeljenja
+
+label while_mod
+    push local 1
+    push argument 1
+    lt
+    if-goto end_mod
+    push local 1
+    push argument 1
+    sub
+    pop local 1
+    goto while_mod
+
+label end_mod
+    push local 1
+    return

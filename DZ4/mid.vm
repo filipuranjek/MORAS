@@ -1,0 +1,47 @@
+function mid 3
+    push argument 0
+    push argument 1
+    gt
+    if-goto x_gt_y
+    push argument 1
+    push argument 2
+    gt
+    if-goto y_gt_z
+    push argument 1
+    return // x nije veci od y, a y nije veci od z
+
+
+
+
+label x_gt_y
+    push argument 0
+    push argument 2
+    gt
+    if-goto x_gt_z
+    push argument 0
+    return // x je veci od y, a manji od z
+
+label x_gt_z
+    push argument 1
+    push argument 2
+    gt
+    if-goto ret_y
+    push argument 2
+    return // x je veci i od y i od z, ali y nije veci od z
+
+label y_gt_z
+    push argument 0
+    push argument 2
+    gt
+    if-goto ret_x
+    push argument 2
+    return // x je manji od z a, z je manji od y
+
+
+label ret_y
+    push argument 1
+    return // y je veci od z a, manji od y
+
+label ret_x
+    push argument 0
+    return // x je veci od z, a manji od y

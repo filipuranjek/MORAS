@@ -1,0 +1,66 @@
+function bin_search 3
+    push constant 0
+    pop local 0
+
+    push argument 1
+    push constant 1
+    sub
+    pop local 1 // duljina polja n-1
+
+label while
+    push local 0
+    push local 1
+    gt
+    if-goto end_while
+
+    push local 0
+    push local 1
+    add
+    push constant 2
+    call div_mod.div 2
+    pop local 2 // indeks srednjeg elementa
+
+    push local 2
+    push argument 0
+    add // pomjeranje po polju za local 2
+
+    pop pointer 1
+    push that 0
+    push argument 2
+    eq
+    if-goto found
+
+    push local 2
+    push argument 0
+    add
+    pop pointer 1
+    push that 0
+    push argument 2
+    gt
+    if-goto higher
+    goto lower
+
+
+
+label end_while
+    push constant 1
+    neg
+    return
+
+label found
+    push local 2
+    return 
+
+label higher
+    push local 2
+    push constant 1
+    sub
+    pop local 1
+    goto while
+
+label lower
+    push local 2
+    push constant 1
+    add
+    pop local 0
+    goto while

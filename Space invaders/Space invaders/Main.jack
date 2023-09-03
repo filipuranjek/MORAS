@@ -1,0 +1,19 @@
+class Main{
+    function void main(){
+        var char level;
+        var Game game;
+        
+        do StartScreen.showGameOver();
+
+        do StartScreen.show();
+        
+        let level = Keyboard.readChar();
+        if(level = 49){
+            let game = Game.new();
+            do game.play();
+        }
+        
+
+        return;
+    }
+}

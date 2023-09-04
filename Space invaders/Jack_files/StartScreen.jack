@@ -1,0 +1,56 @@
+class StartScreen{
+    function void show(){
+        do Screen.clearScreen();
+        do StartScreen.gameTitle();
+        
+        return;
+    }
+
+    function void gameTitle(){
+        var string title;
+        let title = "Space Invaders";
+        do Output.moveCursor(7,25);
+        do Output.printString(title);
+        do Output.println();
+        do Screen.drawLine(190,95, 320, 95);
+        do Screen.drawLine(190,96, 320, 96);
+        do Screen.drawLine(190,97, 320, 97);
+        do Output.moveCursor(10, 21);
+        do Output.printString("Press 1 for easy mode.");
+        do Output.moveCursor(11, 21);
+        do Output.printString("Press 2 for medium mode.");
+        do Output.moveCursor(12, 21);
+        do Output.printString("Press 3 for hard mode.");
+        do Output.println();
+
+        return;
+    }
+
+    function void showGameOver(){
+        var string over;
+        do Screen.clearScreen();
+        let over = "GAME OVER!";
+        do Output.moveCursor(7,25);
+        do Output.printString(over);
+        do Objects.drawAlien1(240, 100, true);
+        do Objects.drawAlien2(160, 150, true);
+        do Objects.drawAlien3(50, 30, true);
+        do Objects.drawAlien1(50, 210, true);
+        do Objects.drawAlien2(400, 30, true);
+        do Objects.drawAlien3(350, 210, true);
+        do Objects.drawAlien1(230, 220, true);
+        do Objects.drawAlien2(380, 150, true);
+        do Objects.drawAlien3(65, 165, true);
+        return;
+    }
+
+    function void showWin(){
+        var string win;
+        do Screen.clearScreen();
+        let win = "YOU WIN!";
+        do Output.moveCursor(7,25);
+        do Output.printString(win);
+
+        return;
+    }
+}

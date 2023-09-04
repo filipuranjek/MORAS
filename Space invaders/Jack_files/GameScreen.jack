@@ -1,0 +1,46 @@
+class GameScreen{
+    static int level_number;
+    static int score;
+
+    function void showGameScreen(int level){
+        do Screen.clearScreen();
+        do GameScreen.gamescene(level, 0);
+
+        return;
+    }
+
+    function void gamescene(int level, int given_score){
+        let level_number = level;
+        do Output.moveCursor(0,0);
+        do Output.printString("Mode: ");
+        do Output.moveCursor(0,6);
+        if(level_number = 49){
+            let level_number = 1;
+            do Output.printInt(level_number);
+        }
+        if(level_number = 50){
+            let level_number = 2;
+            do Output.printInt(level_number);
+        }
+        if(level_number = 51){
+            let level_number = 3;
+            do Output.printInt(level_number);
+        }
+
+        do Output.moveCursor(1,0);
+        do Output.printString("Score: ");
+        do Output.moveCursor(1,6);
+        do Output.printInt(0);
+        do Screen.drawLine(0,25, 511, 25);
+        do Screen.drawLine(0,26, 511, 26);
+        
+        return;
+    }
+
+    function void update_score(int updated_score){
+        do Output.moveCursor(1,6);
+        do Output.printInt(updated_score);
+
+        return;
+    }
+}
